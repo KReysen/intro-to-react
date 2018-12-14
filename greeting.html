@@ -13,32 +13,81 @@
 
     <script type="text/babel">
        class Greeting extends React.Component {
+         constructor() {
+           super();
+           this.state = {
+             initialGreeting: 'Hello World',
+           }
+
+           this.handleOnClick = this.handleOnClick.bind(this);
+
+         }
+         getGreeting() {
+           if (this.props.greeting) {
+             return this.props.greeting;
+           }
+           return this.state.initialGreeting;
+         }
+
+         handleOnClick() {
+           this.setState({
+             initialGreeting: 'HELLO WORLD',
+           })
+         }
          render() {
            return (
-             <div>
-               <h1>Hello World!</h1>
+             <div onClick={this.handleOnClick}>
+               <h1>{this.getGreeting()}</h1>
              </div>
            );
          }
        }
 
-       class Paragraph extends React.Component {
-         render() {
-           return (
-             <div>
-               <p>Here is a simple React component!</p>
-             </div>
-           );
-         }
+       function Paragraph(props) {
+         return <p>{props.word}</p>
        }
 
-       ReactDOM.render(
-         <div>
-         <Greeting />
-         <Paragraph />
-         </div>,
-          document.getElementById('app')
-       );
+       function WriteWords() {
+         return (
+           <div>
+           <Paragraph word="Here" />
+           <Paragraph word="is" />
+           <Paragraph word="a" />
+           <Paragraph word="component" />
+           <Paragraph word="with" />
+           <Paragraph word="props!" />
+           </div>
+         );
+       }
+       // class Paragraph extends React.Component {
+       //  constructor() {
+       //    super();
+       //
+       //    // this.state = {
+       //    //   initialText: 'Here is a simple React component!'
+       //    // }
+       //
+       //  }
+       //  getSentence() {
+       //    return this.state.initialText;
+       //  }
+       //   render() {
+       //     return (
+       //       <div>
+       //         <p>{this.getSentence()}</p>
+       //       </div>
+       //     );
+       //   }
+       // }
+
+          ReactDOM.render(
+            <div>
+            <Greeting title="Greeting" />
+            <WriteWords />
+            </div>,
+            document.getElementById('app')
+
+          );
     </script>
   </body>
 </html>
