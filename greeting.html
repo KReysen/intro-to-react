@@ -22,8 +22,22 @@
          }
        }
 
+       class Paragraph extends React.Component {
+         render() {
+           return (
+             <div>
+               <p>Here is a simple React component!</p>
+             </div>
+           );
+         }
+       }
+
        ReactDOM.render(
-         <Greeting />, document.getElementById('app')
+         <div>
+         <Greeting />
+         <Paragraph />
+         </div>,
+          document.getElementById('app')
        );
     </script>
   </body>
