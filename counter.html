@@ -14,12 +14,12 @@
     <script type="text/babel">
 
       class Counter extends React.Component {
-          constructor(props) {
-            super(props);
-              this.state = {
-                number: 1
-              }
+        constructor(props){
+          super(props);
+          this.state = {
+            number: 1
           }
+        }
 
       increment(event) {
         this.setState({
@@ -41,6 +41,7 @@
                 <h3>Current week: {this.state.number}</h3>
                 <button onClick={this.increment.bind(this)}>Increment</button>
                 <button onClick={this.decrement.bind(this)}>Decrement</button>
+              <h3>Current week: {this.state.number}</h3>
               <p>Current Date: {this.props.date.toLocaleDateString()}</p>
             </div>
           );
