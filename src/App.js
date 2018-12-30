@@ -24,7 +24,7 @@ class App extends Component {
     if (!this.state.newTodoDescription) { return }
     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
     this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
-    
+
   }
 
   toggleComplete(index) {
