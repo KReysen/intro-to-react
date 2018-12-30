@@ -34,6 +34,11 @@ class App extends Component {
     this.setState({ todos: todos });
   }
 
+deleteTodo(e) {
+    // e.preventDefault();
+    // console.log('Delete button was clicked');
+  }
+
   render() {
     return (
       <div className="App">
