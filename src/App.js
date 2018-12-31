@@ -36,7 +36,10 @@ class App extends Component {
 
 deleteTodo(e) {
     // e.preventDefault();
-    // console.log('Delete button was clicked');
+    console.log('Delete button was clicked');
+    this.setState({
+      todo: this.state.todo.filter(list => list !== e)
+    })
   }
 
   render() {
@@ -46,6 +49,7 @@ deleteTodo(e) {
          { this.state.todos.map( (todo, index) =>
            <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
          )}
+
        </ul>
        <form onSubmit={ (e) => this.handleSubmit(e) }>
          <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
