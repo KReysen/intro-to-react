@@ -35,11 +35,15 @@ class App extends Component {
   }
 
 deleteTodo(e) {
-    // e.preventDefault();
-    console.log('Delete button was clicked');
+     e.preventDefault();
+
+    console.log('Delete button was clicked'  );
+    const newArray = this.state.todos.filter(list => list !== e)
+    console.log('Delete button was clicked' + newArray );
     this.setState({
-      todo: this.state.todo.filter(list => list !== e)
-    })
+       todos: [newArray]
+    // need to set state to a new array that doesn't have the item being deleted
+     })
   }
 
   render() {
@@ -47,7 +51,11 @@ deleteTodo(e) {
       <div className="App">
        <ul>
          { this.state.todos.map( (todo, index) =>
-           <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+           <ToDo key={ index }
+                 description={ todo.description }
+                 isCompleted={ todo.isCompleted }
+                 toggleComplete={ () => this.toggleComplete(index) }
+                 deleteTodo={ () => this.deleteTodo(index) }/>
          )}
 
        </ul>
