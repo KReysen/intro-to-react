@@ -34,15 +34,11 @@ class App extends Component {
     this.setState({ todos: todos });
   }
 
-deleteTodo(e) {
-     e.preventDefault();
+  deleteTodo(index) {
+    const todos = this.state.todos.filter((list, i) => i !== index);
 
-    console.log('Delete button was clicked'  );
-    const newArray = this.state.todos.filter(list => list !== e)
-    console.log('Delete button was clicked' + newArray );
     this.setState({
-       todos: [newArray]
-    // need to set state to a new array that doesn't have the item being deleted
+      todos
      })
   }
 
